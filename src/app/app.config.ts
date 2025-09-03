@@ -1,12 +1,26 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-
 import { routes } from './app.routes';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { providePrimeNG } from 'primeng/config';
+
+// 👇 Usa Lara (claro) en vez de Aura (oscuro)
+import Lara from '@primeuix/themes/lara';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes)
+    provideRouter(routes),
+    provideAnimationsAsync(),
+    providePrimeNG({
+      theme: {
+        preset: Lara,
+        options: {
+          darkModeSelector: '.my-app-dark'}       // ✅ Tema claro
+        // Si quieres forzar SIEMPRE claro, no pongas darkModeSelector.
+        // options: { darkModeSelector: undefined }
+      }
+    })
   ]
 };

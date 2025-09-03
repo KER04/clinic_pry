@@ -1,0 +1,140 @@
+<!-- LISTADO DE PACIENTES -->
+<section class="patients">
+
+  <!-- Encabezado de página -->
+  <header class="page-header">
+    <div>
+      <h1>Pacientes</h1>
+      <p class="muted">Listado general con filtros rápidos</p>
+    </div>
+
+    <div class="page-actions">
+      <button class="btn btn--ghost" aria-label="Exportar">⤓ Exportar</button>
+      <a class="btn btn--primary" routerLink="/pacientes/nuevo">+ Nuevo paciente</a>
+    </div>
+  </header>
+
+  <!-- Filtros -->
+  <form class="filters" (submit)="$event.preventDefault()">
+    <div class="field">
+      <label>Buscar</label>
+      <input type="search" placeholder="Nombre, documento, teléfono…" />
+    </div>
+
+    <div class="field">
+      <label>Sexo</label>
+      <select>
+        <option value="">Todos</option>
+        <option>Femenino</option>
+        <option>Masculino</option>
+        <option>Otro</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Edad</label>
+      <select>
+        <option value="">Cualquiera</option>
+        <option>0–12</option>
+        <option>13–17</option>
+        <option>18–59</option>
+        <option>60+</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Estado</label>
+      <select>
+        <option value="">Todos</option>
+        <option>Activo</option>
+        <option>Inactivo</option>
+        <option>Observación</option>
+      </select>
+    </div>
+
+    <div class="field field--grow">
+      <label>&nbsp;</label>
+      <button class="btn btn--ghost" type="reset">Limpiar</button>
+    </div>
+  </form>
+
+  <!-- Tabla -->
+  <div class="table-wrapper" role="region" aria-label="Tabla de pacientes">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Paciente</th>
+          <th>Documento</th>
+          <th>Edad</th>
+          <th>Sexo</th>
+          <th>Teléfono</th>
+          <th>Última visita</th>
+          <th>Estado</th>
+          <th class="th-actions">Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>#1021</td>
+          <td><strong>María Pérez</strong></td>
+          <td>CC 1.234.567.890</td>
+          <td>34</td>
+          <td>F</td>
+          <td>300 123 4567</td>
+          <td>2025-08-19</td>
+          <td><span class="badge badge--ok">Activo</span></td>
+          <td class="row-actions">
+            <a class="link" routerLink="/pacientes/resumen">Ver</a>
+            <button class="btn-icon" title="Editar">✏️</button>
+            <button class="btn-icon" title="Más">⋯</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>#0998</td>
+          <td><strong>Juan Gómez</strong></td>
+          <td>CC 1.111.222.333</td>
+          <td>9</td>
+          <td>M</td>
+          <td>320 555 7788</td>
+          <td>2025-08-02</td>
+          <td><span class="badge badge--warn">Observación</span></td>
+          <td class="row-actions">
+            <a class="link" routerLink="/pacientes/resumen">Ver</a>
+            <button class="btn-icon" title="Editar">✏️</button>
+            <button class="btn-icon" title="Más">⋯</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>#0870</td>
+          <td><strong>Luisa Díaz</strong></td>
+          <td>CC 7.654.321.000</td>
+          <td>62</td>
+          <td>F</td>
+          <td>310 222 3344</td>
+          <td>2025-07-28</td>
+          <td><span class="badge badge--muted">Inactivo</span></td>
+          <td class="row-actions">
+            <a class="link" routerLink="/pacientes/resumen">Ver</a>
+            <button class="btn-icon" title="Editar">✏️</button>
+            <button class="btn-icon" title="Más">⋯</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Paginación -->
+  <nav class="pager" aria-label="Paginación">
+    <button class="btn btn--ghost" disabled>‹ Anterior</button>
+    <ul class="pager-pages">
+      <li><button class="btn btn--ghost is-active">1</button></li>
+      <li><button class="btn btn--ghost">2</button></li>
+      <li><button class="btn btn--ghost">3</button></li>
+    </ul>
+    <button class="btn btn--ghost">Siguiente ›</button>
+  </nav>
+</section>

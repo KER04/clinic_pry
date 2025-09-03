@@ -1,0 +1,38 @@
+/* aside.css */
+:host ::ng-deep .aside-menu .p-panelmenu {
+  border: 0;
+}
+
+:host ::ng-deep .aside-menu .p-panelmenu-panel {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0d0f15;
+  margin-bottom: 10px;
+}
+
+:host ::ng-deep .aside-menu .p-panelmenu-header > a {
+  padding: 14px;
+  font-weight: 600;
+  color: #e8eaf1;
+  background: #111319;
+}
+
+:host ::ng-deep .aside-menu .p-panelmenu-header .p-menuitem-icon {
+  margin-right: .5rem;
+  opacity: .9;
+}
+
+:host ::ng-deep .aside-menu .p-panelmenu-content {
+  background: #0d0f15;
+  padding: 6px;
+}
+
+/* efecto hover similar al tuyo */
+:host ::ng-deep .aside-menu .p-menuitem-link {
+  border-radius: 8px;
+}
+:host ::ng-deep .aside-menu .p-menuitem-link:hover {
+  background: #10131b;
+  border: 1px solid #1f2436;
+}

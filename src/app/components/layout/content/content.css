@@ -1,0 +1,127 @@
+/* ==========================
+   MAIN / CONTENT (component)
+   ========================== */
+.app-main{
+  grid-area: main;
+  padding: 20px;
+  background: var(--surface);
+  overflow: auto;
+}
+
+.page-header h1{
+  margin: 0 0 6px;
+  font-size: 24px;
+}
+.muted{ color: var(--muted); }
+.muted.warning{ color: var(--warn); }
+
+/* Tarjetas KPI */
+.cards{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(180px,1fr));
+  gap: 16px;
+  margin: 16px 0 22px;
+}
+.card{
+  background: #0f1117;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+.card h3{ margin: 0 0 4px; font-size: 14px; color: var(--muted); }
+.kpi{ margin: 2px 0; font-size: 28px; font-weight: 800; color: var(--brand); }
+
+/* Paneles */
+.grid-2{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.panel{
+  background: #0f1117;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 14px;
+  min-height: 240px;
+}
+.panel-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.panel-header h2{
+  font-size: 16px;
+  margin: 0;
+}
+.link{
+  color: var(--brand);
+  text-decoration: none;
+}
+.link:hover{ text-decoration: underline; }
+
+/* Tabla simple */
+.table-wrapper{ overflow: auto; border-radius: 10px; }
+.table{
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 560px;
+}
+.table th,
+.table td{
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+}
+.table thead th{
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.badge{
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid #1f2436;
+  background: #0b1018;
+}
+.badge--warn{ color: var(--warn); border-color: #2d2412; background: #16120a; }
+.badge--danger{ color: var(--danger); border-color: #2b1212; background: #160a0a; }
+
+/* Actividad */
+.activity{
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0;
+  display: grid;
+  gap: 10px;
+}
+.activity li{
+  display: grid;
+  grid-template-columns: 12px 1fr auto;
+  align-items: start;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #0b0f17;
+}
+.activity .dot{
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--brand);
+  margin-top: 6px;
+}
+.activity time{ color: var(--muted); font-size: 12px; }
+
+/* Responsive de CONTENT (para tarjetas/columnas) */
+@media (max-width: 1024px){
+  .cards{ grid-template-columns: repeat(2, minmax(180px,1fr)); }
+  .grid-2{ grid-template-columns: 1fr; }
+}
+@media (max-width: 720px){
+  .cards{ grid-template-columns: 1fr; }
+}
+.app-main{ overflow: auto; }

@@ -1,0 +1,50 @@
+main {
+    display: grid;
+    gap: 0px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+        "header header  header  header  header"
+        "aside  section section section section"
+        "footer footer  footer  footer  footer";
+    row-gap: 0;
+    column-gap: 0;
+     grid-template-rows: min-content 1fr min-content; /* 👈 clave */
+    height: 100svh;
+    background: var(--bg);
+    color: var(--text);
+
+}
+
+header {
+    grid-area: header;
+    
+    
+}
+
+aside {
+    grid-area: aside;
+   
+}
+
+section {
+    grid-area: section;
+    /*Permite hacer scroll solo en el content*/
+    min-height: 0;
+    overflow: auto;
+}
+
+.recuadros {
+    display: flex;
+    flex-flow: row wrap;
+    row-gap: 10px;
+    margin: 2px 20px 2px 5px;
+}
+
+.elemento {
+    width: 25%;
+}
+
+footer {
+    grid-area: footer;
+    
+}

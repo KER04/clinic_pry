@@ -1,0 +1,194 @@
+<!-- LISTADO DE CITAS -->
+<section class="appointments">
+
+  <!-- Encabezado -->
+  <header class="page-header">
+    <div>
+      <h1>Citas</h1>
+      <p class="muted">Agenda, filtros rápidos y acciones</p>
+    </div>
+
+    <div class="page-actions">
+      <button class="btn btn--ghost" aria-label="Exportar">⤓ Exportar</button>
+      
+    </div>
+  </header>
+
+  <!-- Filtros -->
+  <form class="filters" (submit)="$event.preventDefault()">
+    <div class="field">
+      <label>Buscar</label>
+      <input type="search" placeholder="Paciente, documento, teléfono…" />
+    </div>
+
+    <div class="field">
+      <label>Fecha</label>
+      <input type="date" />
+    </div>
+
+    <div class="field">
+      <label>Estado</label>
+      <select>
+        <option value="">Todos</option>
+        <option>Confirmada</option>
+        <option>Por confirmar</option>
+        <option>Reprogramar</option>
+        <option>Cancelada</option>
+        <option>En consulta</option>
+        <option>Finalizada</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Médico</label>
+      <select>
+        <option value="">Todos</option>
+        <option>Dra. Hernández</option>
+        <option>Dr. García</option>
+        <option>Dra. Ríos</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Especialidad</label>
+      <select>
+        <option value="">Todas</option>
+        <option>Medicina General</option>
+        <option>Pediatría</option>
+        <option>Odontología</option>
+        <option>Cardiología</option>
+      </select>
+    </div>
+
+    <div class="field field--grow">
+      <label>&nbsp;</label>
+      <button class="btn btn--ghost" type="reset">Limpiar</button>
+    </div>
+  </form>
+
+  <!-- KPIs pequeños -->
+  <section class="kpis">
+    <article class="kpi-card">
+      <h3>Hoy</h3>
+      <p class="kpi">24</p>
+      <p class="muted">+3 vs ayer</p>
+    </article>
+    <article class="kpi-card">
+      <h3>Por confirmar</h3>
+      <p class="kpi">5</p>
+      <p class="muted">en las próximas 24h</p>
+    </article>
+    <article class="kpi-card">
+      <h3>Reprogramar</h3>
+      <p class="kpi">2</p>
+      <p class="muted">conflicto de agenda</p>
+    </article>
+    <article class="kpi-card">
+      <h3>Canceladas</h3>
+      <p class="kpi">1</p>
+      <p class="muted">últimas 24h</p>
+    </article>
+  </section>
+
+  <!-- Tabla -->
+  <div class="table-wrapper" role="region" aria-label="Tabla de citas">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Hora</th>
+          <th>Paciente</th>
+          <th>Documento</th>
+          <th>Especialidad</th>
+          <th>Médico</th>
+          <th>Consultorio</th>
+          <th>Estado</th>
+          <th class="th-actions">Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>08:00</td>
+          <td><strong>María Pérez</strong></td>
+          <td>CC 1.234.567.890</td>
+          <td>Medicina General</td>
+          <td>Dra. Hernández</td>
+          <td>101</td>
+          <td><span class="status status--confirmada">Confirmada</span></td>
+          <td class="row-actions">
+            <button class="btn-sm" title="Check-in">Check-in</button>
+            <button class="btn-sm" title="Reprogramar">Reprog.</button>
+            <a class="link" routerLink="/pacientes/resumen">Ficha</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>09:30</td>
+          <td><strong>Juan Gómez</strong></td>
+          <td>CC 1.111.222.333</td>
+          <td>Pediatría</td>
+          <td>Dr. García</td>
+          <td>204</td>
+          <td><span class="status status--pendiente">Por confirmar</span></td>
+          <td class="row-actions">
+            <button class="btn-sm" title="Confirmar">Confirmar</button>
+            <button class="btn-sm" title="Reprogramar">Reprog.</button>
+            <a class="link" routerLink="/pacientes/resumen">Ficha</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>10:15</td>
+          <td><strong>Luisa Díaz</strong></td>
+          <td>CC 7.654.321.000</td>
+          <td>Odontología</td>
+          <td>Dra. Ríos</td>
+          <td>3B</td>
+          <td><span class="status status--enconsulta">En consulta</span></td>
+          <td class="row-actions">
+            <a class="link" routerLink="/citas/nueva">Editar</a>
+            <button class="btn-sm" title="Completar">Completar</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>11:00</td>
+          <td><strong>Carlos Ruiz</strong></td>
+          <td>CC 9.876.543.210</td>
+          <td>Cardiología</td>
+          <td>Dr. García</td>
+          <td>305</td>
+          <td><span class="status status--reprog">Reprogramar</span></td>
+          <td class="row-actions">
+            <button class="btn-sm" title="Reprogramar">Reprog.</button>
+            <button class="btn-sm" title="Cancelar">Cancelar</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>12:30</td>
+          <td><strong>Rosa Téllez</strong></td>
+          <td>CC 2.345.678.901</td>
+          <td>Medicina General</td>
+          <td>Dra. Hernández</td>
+          <td>102</td>
+          <td><span class="status status--cancelada">Cancelada</span></td>
+          <td class="row-actions">
+            <button class="btn-sm" title="Reactivar">Reactivar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Paginación -->
+  <nav class="pager" aria-label="Paginación">
+    <button class="btn btn--ghost" disabled>‹ Anterior</button>
+    <ul class="pager-pages">
+      <li><button class="btn btn--ghost is-active">1</button></li>
+      <li><button class="btn btn--ghost">2</button></li>
+      <li><button class="btn btn--ghost">3</button></li>
+    </ul>
+    <button class="btn btn--ghost">Siguiente ›</button>
+  </nav>
+</section>

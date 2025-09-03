@@ -1,0 +1,115 @@
+/* ====== NUEVO PACIENTE (oscuro) ====== */
+
+.patient-new{ display:grid; gap:16px; }
+
+/* Header */
+.page-header{
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+}
+.page-header h1{ margin:0; font-size:24px; }
+.muted{ color: var(--muted); }
+
+/* Botones genéricos */
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  height:36px; padding:0 14px; border-radius:10px;
+  border:1px solid var(--line); background:#0f1117; color:var(--text);
+  cursor:pointer; text-decoration:none;
+}
+.btn:hover{ border-color:#2b2f41; }
+.btn--primary{
+  background: linear-gradient(135deg, var(--brand), var(--brand-strong));
+  color:#0b0c10; border-color:transparent; font-weight:700;
+}
+.btn--ghost{ background:#0f1117; }
+
+/* Layout principal del formulario */
+.form{
+  display:grid; grid-template-columns: 2fr 1fr; gap:16px;
+}
+.panel{
+  background:#0f1117; border:1px solid var(--line);
+  border-radius:12px; padding:14px; box-shadow: var(--shadow);
+}
+.panel-title{ margin:0 0 10px; font-size:16px; }
+.panel-title.sep{ margin-top:12px; }
+.side{ align-self:start; position:sticky; top:8px; }
+
+/* Grids internos */
+.grid-2{ display:grid; grid-template-columns: 1fr 1fr; gap:12px; }
+.grid-3{ display:grid; grid-template-columns: 1fr 1fr 1fr; gap:12px; }
+
+/* Campos */
+.field{ display:grid; gap:6px; }
+.field label{ font-size:12px; color:var(--muted); }
+.req{ color:#ff8a8a; }
+
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="tel"],
+.field input[type="date"],
+.field input[type="time"],
+.field select,
+.field textarea{
+  height:36px;
+  border-radius:10px;
+  border:1px solid var(--line);
+  background:#0b0f17; color:var(--text);
+  padding:0 12px;
+}
+.field textarea{ height:auto; padding:10px 12px; }
+
+/* Segmentado (Sexo) */
+.segmented{ display:flex; gap:8px; flex-wrap:wrap; }
+.seg{ position:relative; }
+.seg input{ position:absolute; inset:0; opacity:0; cursor:pointer; }
+.seg span{
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:56px; height:32px; padding:0 12px; border-radius:999px;
+  border:1px solid var(--line); background:#0b1018; color:var(--text);
+}
+.seg input:checked + span{
+  border-color:#1f2436; background:#10131b;
+}
+
+/* Checks y upload */
+.check{ display:flex; align-items:center; gap:6px; color:var(--text); }
+.upload{ display:grid; gap:6px; }
+#file{ display:none; }
+.filebox{
+  display:inline-flex; align-items:center; gap:8px;
+  height:36px; padding:0 12px; border-radius:10px;
+  border:1px dashed #2b2f41; background:#0b1018; color:var(--text);
+  cursor:pointer;
+}
+.filebox:hover{ border-color:#3a4160; }
+
+/* Resumen */
+.summary{
+  margin-top:12px; padding:10px; border:1px dashed #20263a; border-radius:10px;
+  background:#0b1018;
+}
+.summary h3{ margin:0 0 6px; font-size:14px; color:var(--muted); }
+.summary ul{ margin:0; padding-left:16px; display:grid; gap:4px; }
+.summary li span{ color:var(--muted); }
+
+/* Acciones del formulario */
+.form-actions{
+  grid-column: 1 / -1;
+  display:flex; gap:10px; align-items:center; margin-top:4px;
+  background:#0f1117; border:1px solid var(--line);
+  border-radius:12px; padding:10px;
+  position:sticky; bottom:0;
+}
+.form-actions .spacer{ flex:1; }
+
+/* Responsive */
+@media (max-width: 1024px){
+  .form{ grid-template-columns: 1fr; }
+  .side{ position:static; }
+  .grid-3{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 720px){
+  .grid-2{ grid-template-columns: 1fr; }
+  .grid-3{ grid-template-columns: 1fr; }
+}

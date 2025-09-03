@@ -1,0 +1,204 @@
+<!-- NUEVO PACIENTE -->
+<section class="patient-new">
+
+  <!-- Encabezado -->
+  <header class="page-header">
+    <div>
+      <h1>Nuevo paciente</h1>
+      <p class="muted">Registra datos de identificación, contacto, afiliación y salud</p>
+    </div>
+
+    <div class="page-actions">
+      <a class="btn btn--ghost" routerLink="/pacientes">← Volver al listado</a>
+      <button class="btn btn--primary" type="submit" form="patientForm">Guardar paciente</button>
+    </div>
+  </header>
+
+  <form id="patientForm" class="form" (submit)="$event.preventDefault()">
+    <!-- Columna izquierda: identificación + salud -->
+    <section class="panel">
+      <h2 class="panel-title">Identificación</h2>
+
+      <div class="grid-3">
+        <div class="field">
+          <label>Tipo documento <span class="req">*</span></label>
+          <select required>
+            <option hidden selected>Seleccionar…</option>
+            <option>CC</option>
+            <option>TI</option>
+            <option>CE</option>
+            <option>Pasaporte</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Número <span class="req">*</span></label>
+          <input type="text" placeholder="1234567890" required />
+        </div>
+
+        <div class="field">
+          <label>Fecha de expedición</label>
+          <input type="date" />
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="field">
+          <label>Nombres <span class="req">*</span></label>
+          <input type="text" placeholder="Nombres" required />
+        </div>
+        <div class="field">
+          <label>Apellidos <span class="req">*</span></label>
+          <input type="text" placeholder="Apellidos" required />
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="field">
+          <label>Fecha de nacimiento <span class="req">*</span></label>
+          <input type="date" required />
+        </div>
+
+        <div class="field">
+          <label>Sexo <span class="req">*</span></label>
+          <div class="segmented">
+            <label class="seg">
+              <input type="radio" name="sexo" value="F" required />
+              <span>F</span>
+            </label>
+            <label class="seg">
+              <input type="radio" name="sexo" value="M" />
+              <span>M</span>
+            </label>
+            <label class="seg">
+              <input type="radio" name="sexo" value="Otro" />
+              <span>Otro</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Grupo sanguíneo</label>
+          <select>
+            <option hidden selected>Seleccionar…</option>
+            <option>O−</option><option>O+</option>
+            <option>A−</option><option>A+</option>
+            <option>B−</option><option>B+</option>
+            <option>AB−</option><option>AB+</option>
+          </select>
+        </div>
+      </div>
+
+      <h2 class="panel-title sep">Salud</h2>
+      <div class="grid-2">
+        <div class="field">
+          <label>Alergias</label>
+          <textarea rows="2" placeholder="Ej: penicilina"></textarea>
+        </div>
+        <div class="field">
+          <label>Medicamentos actuales</label>
+          <textarea rows="2" placeholder="Ej: metformina 850mg"></textarea>
+        </div>
+        <div class="field">
+          <label>Antecedentes</label>
+          <textarea rows="2" placeholder="Ej: HTA, DM2"></textarea>
+        </div>
+        <div class="field">
+          <label>Observaciones</label>
+          <textarea rows="2" placeholder="Notas adicionales…"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <!-- Columna derecha: contacto + afiliación + adjuntos -->
+    <aside class="panel side">
+      <h2 class="panel-title">Contacto y dirección</h2>
+
+      <div class="grid-2">
+        <div class="field">
+          <label>Teléfono</label>
+          <input type="tel" placeholder="300 123 4567" />
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input type="email" placeholder="correo@ejemplo.com" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Dirección</label>
+        <input type="text" placeholder="Calle 123 #45-67, Barrio, Ciudad" />
+      </div>
+
+      <div class="field">
+        <label>Contacto de emergencia</label>
+        <input type="text" placeholder="Nombre completo" />
+      </div>
+
+      <div class="grid-2">
+        <div class="field">
+          <label>Tel. emergencia</label>
+          <input type="tel" placeholder="300 765 4321" />
+        </div>
+        <div class="field">
+          <label>Parentesco</label>
+          <select>
+            <option hidden selected>Seleccionar…</option>
+            <option>Padre/Madre</option>
+            <option>Hermano/a</option>
+            <option>Conyuge</option>
+            <option>Hijo/a</option>
+            <option>Otro</option>
+          </select>
+        </div>
+      </div>
+
+      <h2 class="panel-title sep">Afiliación</h2>
+      <div class="grid-2">
+        <div class="field">
+          <label>Aseguradora</label>
+          <select>
+            <option>No aplica / Particular</option>
+            <option>EPS VidaSana</option>
+            <option>EPS Bienestar</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>N° póliza / afiliado</label>
+          <input type="text" placeholder="Opcional" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Consentimientos</label>
+        <label class="check"><input type="checkbox" /> Acepto tratamiento de datos</label>
+        <label class="check"><input type="checkbox" /> Autorizo recordatorios (SMS/Email)</label>
+      </div>
+
+      <h2 class="panel-title sep">Adjuntos</h2>
+      <div class="upload">
+        <input id="file" type="file" accept="image/*,.pdf" />
+        <label for="file" class="filebox">Subir foto/documento</label>
+        <small class="muted">JPG/PNG/PDF máx. 5MB</small>
+      </div>
+
+      <div class="summary">
+        <h3>Resumen</h3>
+        <ul>
+          <li><span>Nombre:</span> <strong>—</strong></li>
+          <li><span>Documento:</span> <strong>—</strong></li>
+          <li><span>Contacto:</span> <strong>—</strong></li>
+          <li><span>Afiliación:</span> <strong>—</strong></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Acciones -->
+    <div class="form-actions">
+      <a class="btn btn--ghost" routerLink="/pacientes">Cancelar</a>
+      <div class="spacer"></div>
+      <button class="btn btn--ghost" type="button">Guardar borrador</button>
+      <button class="btn btn--primary" type="submit">Guardar paciente</button>
+    </div>
+  </form>
+</section>
