@@ -1,0 +1,73 @@
+<p-toast></p-toast>
+<div class="card p-6 bg-blue-100">
+
+    <p-card header="Nuevo Paciente" styleClass="max-w-3xl mx-auto">
+    <form [formGroup]="form" class="grid gap-3" style="grid-template-columns: 1fr;">
+
+        <div>
+            <label for="name">Nombre *</label>
+            <input id="name" pInputText formControlName="name" placeholder="Ej: María" />
+
+        </div>
+
+        <div>
+            <label for="last_name">Apellido *</label>
+            <input id="last_name" pInputText formControlName="last_name" placeholder="Ej: González" />
+
+        </div>
+
+        <div>
+            <label for="fechaNacimiento">Fecha de Nacimiento *</label>
+            <p-datepicker inputId="fechaNacimiento" formControlName="fechaNacimiento" [showIcon]="true"
+                dateFormat="dd/mm/yy">
+            </p-datepicker>
+
+        </div>
+
+        <div>
+            <label for="genero">Género *</label>
+            <p-select inputId="genero" formControlName="genero" [options]="generos" optionLabel="label"
+                optionValue="value" placeholder="Seleccione">
+            </p-select>
+
+        </div>
+
+        <div>
+            <label for="phone">Teléfono *</label>
+            <input id="phone" pInputText formControlName="phone" placeholder="Ej: 3001234567" />
+
+        </div>
+
+        <div>
+            <label for="email">Email *</label>
+            <input id="email" pInputText formControlName="email" placeholder="correo@example.com" />
+
+        </div>
+
+        <div>
+            <label for="direccion">Dirección</label>
+            <input id="direccion" pInputText formControlName="direccion" />
+        </div>
+
+        <div>
+            <label for="historialMedico">Historial Médico</label>
+            <input id="historialMedico" pInputText type="text" formControlName="historialMedico"
+                placeholder="Antecedentes, alergias, etc." />
+        </div>
+
+        <div>
+            <label for="status">Status *</label>
+            <p-select inputId="status" formControlName="status" [options]="estados" optionLabel="label"
+                optionValue="value" placeholder="Seleccione">
+            </p-select>
+
+        </div>
+
+        <div class="flex gap-2 justify-end" style="margin-top: .5rem;">
+            <button pButton type="button" label="Cancelar" class="p-button-outlined" (click)="cancelar()"></button>
+            <button pButton type="button" label="Guardar" icon="pi pi-save" (click)="guardar()"></button>
+        </div>
+    </form>
+</p-card>
+
+</div>

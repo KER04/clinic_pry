@@ -1,21 +1,41 @@
 import { Routes } from '@angular/router';
 import { Content } from './components/layout/content/content'; // tu home
+import { GetallPatients } from './components/patients/getall/getall';
+import { CreateCitas } from './components/citas/create/create';
+import { GetallCitas } from './components/citas/getall/getall';
+import { CreatePatients } from './components/patients/create/create';
+import { FormsGetall } from './components/forms/forms-getall/forms-getall';
+import { FormsCreate } from './components/forms/forms-create/forms-create';
 
 export const routes: Routes = [
-  // Home
-  { path: '', component: Content }, // ⬅️ Home: aquí se muestra Content
+  { path: '', redirectTo: '', pathMatch: 'full' },
 
-  // Citas
-  { path: 'citas/listado',  
-    loadComponent: () => import('./features/citas/listado').then(m => m.Listado) },
-  { path: 'citas/nueva',    
-    loadComponent: () => import('./features/citas/nueva').then(m => m.Nueva) },
+  //Rutas de pacientes
+  {
+    path: "patients/getall",
+    component: GetallPatients
+  },
+  {
+    path: "patients/create",
+    component: CreatePatients
+  },
+  //rutas de citas
+  {
+    path: "citas/create",
+    component: CreateCitas
+  },
+  {
+    path: "citas/getall",
+    component: GetallCitas
+  },
+  //rutas forms 
+  {
+    path: "forms/getall",
+    component: FormsGetall
+  },
+  {
+    path: "forms/create",
+    component: FormsCreate
+  }
 
-  // Pacientes
-  { path: 'pacientes',         loadComponent: () => import('./features/pacientes/listado').then(m => m.Listado) },
-  { path: 'pacientes/nuevo',   loadComponent: () => import('./features/pacientes/nuevo').then(m => m.Nuevo) },
-  
-
-  // … agrega las demás rutas cuando las vayas creando
-  { path: '**', redirectTo: '' } // fallback
-];
+]

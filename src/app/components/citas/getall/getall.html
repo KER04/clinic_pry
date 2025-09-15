@@ -1,0 +1,41 @@
+<!-- src/app/components/citas/getall/getall.html -->
+<p-confirmDialog></p-confirmDialog>
+<p-toast></p-toast>
+
+<div class="card p-6 bg-blue-100" >
+  <div class="flex justify-between items-center gap-2 mb-3">
+    <h2 class="m-0">Citas</h2>
+  </div>
+
+  <p-table [value]="(citas$ | async) || []" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5,10,20]" [stripedRows]="true" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>Paciente</th>
+        <th>Especialidad</th>
+        <th>Médico</th>
+        <th style="width: 12rem">Acciones</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-c>
+      <tr>
+        <td>{{ c.fecha | date:'mediumDate' }}</td>
+        <td>{{ c.hora }}</td>
+        <td>{{ c.name }} {{ c.last_name }}</td>
+        <td>{{ c.specialty }}</td>
+        <td>{{ c.medico }}</td>
+        <td class="flex gap-2">
+          <!-- Si quieres editar desde aquí, puedes navegar a tu pantalla de edición -->
+          <!-- <p-button size="small" label="Editar" icon="pi pi-pencil" (onClick)="editar(c)"></p-button> -->
+          <p-button size="small" label="Eliminar" icon="pi pi-trash" severity="danger" [outlined]="true" (onClick)="confirmarEliminar(c)"></p-button>
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="emptymessage">
+      <tr><td colspan="6">No hay citas registradas.</td></tr>
+    </ng-template>
+  </p-table>
+</div>

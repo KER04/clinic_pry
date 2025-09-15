@@ -1,0 +1,32 @@
+<div class="card p-6 bg-blue-100">
+  <h2 class="m-0 mb-3">Atenciones</h2>
+
+  <p-table [value]="(rows$ | async) || []" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5,10,20]" [stripedRows]="true" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Fecha</th>
+        <th>Paciente</th>
+        <th>Diagnósticos</th>
+        <th>Procedimientos</th>
+        <th>Receta</th>
+        <th style="width: 10rem">Acciones</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-r>
+      <tr>
+        <td>{{ r.fecha | date:'short' }}</td>
+        <td>{{ r.paciente }}</td>
+        <td>{{ r.diagnosticos}}</td>
+        <td>{{ r.procedimientos?.length || 0 }}</td>
+        <td>{{ r.receta?.length || 0 }}</td>
+        <td>
+          <!-- Puedes agregar editar/navegar -->
+          <p-button size="small" icon="pi pi-trash" severity="danger" [outlined]="true" (onClick)="eliminar(r)"></p-button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr><td colspan="6">Sin atenciones registradas.</td></tr>
+    </ng-template>
+  </p-table>
+</div>

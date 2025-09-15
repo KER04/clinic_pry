@@ -1,0 +1,40 @@
+<div class="card p-6 bg-blue-100">
+
+  <div class="flex justify-end pb-3">
+    <p-button label="Crear" 
+    [routerLink]="'/patients/create'"/>
+  </div>
+
+
+  <p-table [value]="patients" stripedRows [tableStyle]="{'min-width': '50rem'}">
+    <ng-template #header>
+      <tr>
+        <th>ID</th>
+        <th>NOMBRE</th>
+        <th>APELLIDO</th>
+        <th>FECHA_NACIMIENTO</th>
+        <th>GENERO</th>
+        <th>TELEFONO</th>
+        <th>CORREO</th>
+        <th>DIRECCION</th>
+        <th>HISTORIAL MEDICO</th>
+        <th>STATUS</th>
+
+      </tr>
+    </ng-template>
+    <ng-template #body let-pacientes>
+      <tr>
+        <td>{{pacientes.id}}</td>
+        <td>{{pacientes.name}}</td>
+        <td>{{pacientes.last_name}}</td>
+        <td>{{pacientes.fechaNacimiento | date:'dd/MM/yyyy'}}</td>
+        <td>{{pacientes.genero}}</td>
+        <td>{{pacientes.phone}}</td>
+        <td>{{pacientes.email}}</td>
+        <td>{{pacientes.direccion}}</td>
+        <td>{{pacientes.historialMedico}}</td>
+        <td>{{pacientes.status}}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
